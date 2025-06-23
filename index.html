@@ -2031,7 +2031,7 @@
         ];
 
         const getResponsiveConfig = () => {
-            if (window.innerWidth >= 1280) {
+            if (document.documentElement.clientWidth >= 1280) {
                 return {
                     slidesToShow: 5,
                     slideWidth: '260px',
@@ -2041,7 +2041,7 @@
                     loop: true,
                     targetSelector: '.desktop-nav'
                 };
-            } else if (window.innerWidth >= 768) {
+            } else if (document.documentElement.clientWidth >= 768) {
                 return {
                     slidesToShow: 3,
                     slideWidth: '236px',
@@ -2321,7 +2321,7 @@
             const element = document.querySelector(selector);
             if (!element) return;
 
-            const screenWidth = window.innerWidth;
+            const screenWidth = document.documentElement.clientWidth;
 
             let scaleFactor = scaleLogic(screenWidth);
 
@@ -2334,13 +2334,13 @@
 
         function updateContent(referenceWidth) {
             const body = document.body;
-            const currentWidth = window.innerWidth;
+            const currentWidth = document.documentElement.clientWidth;
             body.style.alignItems = "center";
 
         }
 
         function updateLayout() {
-            const width = window.innerWidth;
+            const width = document.documentElement.clientWidth;
 
             const desktop = document.querySelector('.desktop-nav');
             const tablet = document.querySelector('.tablet-nav');
