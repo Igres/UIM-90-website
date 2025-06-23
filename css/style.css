@@ -1,3 +1,19 @@
+/* Fonts */
+@font-face {
+    font-family: "Furore";
+    src: url("../fonts/Furore.otf") format("opentype");
+    /* Исправлено */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gilroy-Light";
+    src: url("../fonts/Gilroy-Light.otf") format("opentype");
+    font-weight: lighter;
+    font-style: normal;
+}
+
 /* Main Styles */
 * {
     margin: 0;
@@ -125,7 +141,7 @@ body {
     cursor: pointer;
 }
 
-.header_menu .language-btn img {
+.header_menu .language-btn .globe {
     width: 24px;
     height: 24px;
     margin-right: 10px;
@@ -5027,20 +5043,4 @@ textarea {
         line-height: 1.5;
     }
 
-}
-
-/* Fonts */
-@font-face {
-    font-family: "Furore";
-    src: url("../fonts/Furore.otf") format("opentype");
-    /* Исправлено */
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Gilroy-Light";
-    src: url("../fonts/Gilroy-Light.otf") format("opentype");
-    font-weight: lighter;
-    font-style: normal;
 }
