@@ -320,6 +320,10 @@
         </section>
         <section class="poster_section">
             <img alt="" class="poster_background" loading="lazy" src="img/poster/background.webp" />
+            <div class="title_poster">
+                <div class="line_poster"><span>UIM-90</span> <span>—</span> <span>НАДІЙНИЙ</span></div>
+                <div class="line_poster">ЗА БУДЬ-ЯКИХ УМОВ</div>
+            </div>
             <img alt="" class="poster_line1" loading="lazy" src="img/poster/Line 1.svg" />
             <img alt="" class="poster_line2" loading="lazy" src="img/poster/Line 2.svg" />
             <img alt="" class="poster_line3" loading="lazy" src="img/poster/Line 3.svg" />
@@ -666,11 +670,11 @@
                 <img alt="" class="fscreen_vec1" loading="lazy" src="img/tablet/fscreen/vector1.svg" />
                 <img alt="" class="fscreen_vec2" loading="lazy" src="img/tablet/fscreen/vector2.svg" />
                 <div class="blur-circle"></div>
-                <div class="circle1"></div>
-                <div class="circle2"></div>
-                <div class="circle3"></div>
-                <div class="circle4"></div>
-                <div class="circle5"></div>
+                <div class="blur-circle circle1"></div>
+                <div class="blur-circle circle2"></div>
+                <div class="blur-circle circle3"></div>
+                <div class="blur-circle circle4"></div>
+                <div class="blur-circle circle5"></div>
                 <img alt="" class="device" loading="lazy" src="img/device.webp" />
                 <h1>UIM-90</h1>
                 <p class="fscreen_about">Прилад для визначення пробивної напруги<br />
@@ -2402,27 +2406,31 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const form = document.querySelector(".feedback_right_column form");
-            const feedbackContainer = document.querySelector(".feedback_container");
-            const thankYouContainer = document.querySelector(".feedback_thankyou");
-            const resendButton = thankYouContainer.querySelector(".resend_btn");
+            // Назначаем обработчик на все кнопки отправки форм внутри .feedback_right_column
+            document.querySelectorAll(".feedback_right_column button[type='submit']").forEach(function (button) {
+                button.addEventListener("click", function (event) {
+                    event.preventDefault();
 
-            form.addEventListener("submit", function (event) {
-                event.preventDefault(); // Остановить стандартную отправку формы
+                    const nav = button.closest("nav");
+                    const form = nav.querySelector(".feedback_right_column form");
+                    const feedbackContainer = nav.querySelector(".feedback_container");
+                    const thankYouContainer = nav.querySelector(".feedback_thankyou");
+                    const resendButton = thankYouContainer.querySelector(".resend_btn");
 
-                // Скрываем форму и показываем сообщение с благодарностью
-                feedbackContainer.classList.add("form_hidden");
-                thankYouContainer.classList.remove("form_hidden");
-            });
+                    // Скрываем форму и показываем благодарность
+                    feedbackContainer.classList.add("form_hidden");
+                    thankYouContainer.classList.remove("form_hidden");
 
-            resendButton.addEventListener("click", function () {
-                // Показываем форму обратно и скрываем благодарность
-                feedbackContainer.classList.remove("form_hidden");
-                thankYouContainer.classList.add("form_hidden");
+                    // Назначаем обработчик кнопки повторной отправки
+                    resendButton.addEventListener("click", function () {
+                        feedbackContainer.classList.remove("form_hidden");
+                        thankYouContainer.classList.add("form_hidden");
+                    });
+                });
             });
         });
-
     </script>
+
 </body>
 
 </html>
