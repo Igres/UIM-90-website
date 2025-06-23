@@ -2031,7 +2031,7 @@
         ];
 
         const getResponsiveConfig = () => {
-            if (document.documentElement.clientWidth >= 1280) {
+             if (window.matchMedia('(min-width: 1280px)').matches) {
                 return {
                     slidesToShow: 5,
                     slideWidth: '260px',
@@ -2041,7 +2041,7 @@
                     loop: true,
                     targetSelector: '.desktop-nav'
                 };
-            } else if (document.documentElement.clientWidth >= 768) {
+            } else  if (window.matchMedia('(min-width: 768px)').matches) {
                 return {
                     slidesToShow: 3,
                     slideWidth: '236px',
@@ -2334,14 +2334,11 @@
 
         function updateContent(referenceWidth) {
             const body = document.body;
-            const currentWidth = document.documentElement.clientWidth;
             body.style.alignItems = "center";
 
         }
 
         function updateLayout() {
-            const width = document.documentElement.clientWidth;
-
             const desktop = document.querySelector('.desktop-nav');
             const tablet = document.querySelector('.tablet-nav');
             const mobile = document.querySelector('.mobile-nav');
@@ -2355,7 +2352,7 @@
                 }
             });
 
-            if (width >= 1280) {
+            if (window.matchMedia('(min-width: 1280px)').matches) {
                 if (desktop) desktop.style.display = 'flex';
                 scaleElement('.desktop-nav', 1440, (w) => {
                     if (w < 1440) return w / 1440;
@@ -2363,10 +2360,12 @@
                     return 1.3;
                 });
                 updateContent(1440);
-            } else if (width >= 768) {
+
+            } else if (window.matchMedia('(min-width: 768px)').matches) {
                 if (tablet) tablet.style.display = 'flex';
                 scaleElement('.tablet-nav', 768, (w) => w / 768);
                 updateContent(768);
+
             } else {
                 if (mobile) mobile.style.display = 'flex';
                 scaleElement('.mobile-nav', 375, (w) => w / 375);
