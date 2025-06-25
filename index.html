@@ -2445,8 +2445,12 @@
     </script>
     <script>
         function toggleButtons(clickedButton) {
-            // Убираем active у всех кнопок
-            document.querySelectorAll('.toggle-button').forEach(button => {
+            // Находим ближайший nav
+            const nav = clickedButton.closest('nav');
+            if (!nav) return;
+
+            // Убираем active у всех кнопок внутри nav
+            nav.querySelectorAll('.toggle-button').forEach(button => {
                 button.classList.remove('active_button');
                 button.classList.add('inactive_button');
             });
@@ -2455,21 +2459,22 @@
             clickedButton.classList.add('active_button');
             clickedButton.classList.remove('inactive_button');
 
-            // Переключаем активные карточки
-            document.querySelectorAll('.contact_content').forEach(content => {
+            // Переключаем активные карточки внутри nav
+            nav.querySelectorAll('.contact_content').forEach(content => {
                 content.classList.remove('active_card');
             });
 
             // Определяем, какую карточку нужно показать
-            if (clickedButton.innerText === "В УКРАЇНІ") {
-                document.getElementById('contact_ukraine').classList.add('active_card');
+            if (clickedButton.innerText.trim() === "В УКРАЇНІ") {
+                const uaCard = nav.querySelector('#contact_ukraine');
+                if (uaCard) uaCard.classList.add('active_card');
             } else {
-                document.getElementById('contact_europe').classList.add('active_card');
+                const euCard = nav.querySelector('#contact_europe');
+                if (euCard) euCard.classList.add('active_card');
             }
         }
-
-
     </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Назначаем обработчик на все кнопки отправки форм внутри .feedback_right_column
