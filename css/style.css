@@ -3730,7 +3730,7 @@ td:first-child {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1280px;
+    width: 90%;
     height: 90%;
     background: white;
     padding: 40px;
@@ -3749,7 +3749,7 @@ td:first-child {
 }
 
 .modal-content h2 {
-     font-family: "Gilroy-Light", sans-serif;
+    font-family: "Gilroy-Light", sans-serif;
     color: #333333;
     font-size: 26px;
     margin-top: 0;
@@ -3832,6 +3832,14 @@ td:first-child {
         left: auto;
         top: 320px;
         right: 70px;
+    }
+
+    .modal-content p {
+        font-family: "Gilroy-Light", sans-serif;
+        font-size: 18px;
+        line-height: 1.5;
+        color: #4F4F4F;
+        margin-bottom: 1.2em;
     }
 
 }
@@ -3922,17 +3930,20 @@ td:first-child {
         height: 100vh;
     }
 
-    #modal {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 1280px;
-        height: 600px;
-        background: white;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    .modal-content h2 {
+        font-family: "Gilroy-Light", sans-serif;
+        color: #333333;
+        font-size: 36px;
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .modal-content p {
+        font-family: "Gilroy-Light", sans-serif;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #4F4F4F;
+        margin-bottom: 1.2em;
     }
 
 }
@@ -3955,32 +3966,7 @@ dialog::backdrop {
     background: rgba(217, 217, 217, 0.5);
 }
 
-@media (max-width: 1279px) {
-    dialog {
-        max-width: 688px;
-    }
 
-}
-
-@media (max-width: 767px) {
-    dialog {
-        left: 80px;
-        width: 70vw;
-        max-width: 688px;
-        max-height: 900px;
-        border: none;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
-        animation: fadeIn 0.3s ease-in-out;
-    }
-
-    dialog::backdrop {
-        background: rgba(217, 217, 217, 0.5);
-    }
-
-}
 
 /* Контент внутри */
 .modal-content {
