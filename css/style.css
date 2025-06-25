@@ -3933,14 +3933,14 @@ td:first-child {
     .modal-content h2 {
         font-family: "Gilroy-Light", sans-serif;
         color: #333333;
-        font-size: 36px;
+        font-size: 26px;
         margin-top: 0;
         margin-bottom: 30px;
     }
 
     .modal-content p {
         font-family: "Gilroy-Light", sans-serif;
-        font-size: 20px;
+        font-size: 14px;
         line-height: 1.5;
         color: #4F4F4F;
         margin-bottom: 1.2em;
