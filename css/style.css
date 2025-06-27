@@ -108,12 +108,14 @@ body {
 
 .header_menu .nav-links {
     width: 716px;
+    min-width: 716px;
     margin-left: 125px;
     color: #333333;
+    display: flex;
+    justify-content: space-between;
 }
 
 .header_menu .nav-links a {
-    margin-right: 35px;
     font-family: "Gilroy-Light", sans-serif;
     font-weight: 600;
     font-size: 16px;
