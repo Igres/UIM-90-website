@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="ua">
+<html lang="uk">
 
 <head>
     <meta charset="utf-8" />
@@ -2480,19 +2480,26 @@
             // Назначаем обработчик на все кнопки отправки форм внутри .feedback_right_column
             document.querySelectorAll(".feedback_right_column button[type='submit']").forEach(function (button) {
                 button.addEventListener("click", function (event) {
-                    event.preventDefault();
-
                     const nav = button.closest("nav");
                     const form = nav.querySelector(".feedback_right_column form");
+
+                    // Проверка валидности формы перед отправкой
+                    if (!form.checkValidity()) {
+                        form.reportValidity(); // Показываем ошибки валидации
+                        return; // Прерываем выполнение, не скрываем форму
+                    }
+
+                    event.preventDefault(); // Блокируем стандартную отправку формы
+
                     const feedbackContainer = nav.querySelector(".feedback_container");
                     const thankYouContainer = nav.querySelector(".feedback_thankyou");
                     const resendButton = thankYouContainer.querySelector(".resend_btn");
 
-                    // Скрываем форму и показываем благодарность
+                    // Скрываем форму и показываем сообщение "Спасибо"
                     feedbackContainer.classList.add("form_hidden");
                     thankYouContainer.classList.remove("form_hidden");
 
-                    // Назначаем обработчик кнопки повторной отправки
+                    // Обработчик кнопки повторной отправки
                     resendButton.addEventListener("click", function () {
                         feedbackContainer.classList.remove("form_hidden");
                         thankYouContainer.classList.add("form_hidden");
@@ -2501,6 +2508,7 @@
             });
         });
     </script>
+
 
 </body>
 
