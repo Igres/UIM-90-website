@@ -2687,7 +2687,12 @@ td:first-child {
     }
 
     .desc p {
+        font-family: "Gilroy-Light", sans-serif;
         font-size: 18px;
+        font-weight: 400;
+        color: #4f4f4f;
+        line-height: 1.5;
+        margin: 0;
     }
 
     .accordion {
